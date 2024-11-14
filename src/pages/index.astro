@@ -5,4 +5,46 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Welcome to Astro.">
 	Hola mundo
 	<div class=" text-red-500"></div>
+
+	<div class="bg-blue-200 p-3 inline-blocka">
+		presioname
+
+	</div>
 </Layout>
+<script>
+	import JSConfetti from 'js-confetti'
+
+	const jsConfetti = new JSConfetti()
+
+	const btn = document.getElementById("btn")
+
+	btn.addEventListener("click" , function (e) { 
+		const elm = e.target
+		//elm.classList.remove("bg-red-200")
+		//elm.classList.add("bg-red-500")
+
+		elm.classList.replace("bg-red-200" , "bg-red-500")
+
+		elm.innerText = "Ouch!"
+
+		const myDiv = document.createElement("div")
+		myDiv.innerText = "soy un div creado con JS "
+		myDiv.classList.add("bg-green-500" , "text-wihite")
+
+		myDiv.addEventListener("click" , (e) => {
+			e.target?.remove()
+			console.log("Harakiri" , e.target)
+
+		})
+		
+		document.body.appendChild(myDiv)
+
+		//console.log("Aca estoy en la consola" , e.target.id)
+
+		jsConfetti.addConfetti()
+
+	})
+
+
+	
+</script>
